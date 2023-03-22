@@ -9,6 +9,7 @@ class FibonacciTest extends TestCase
     public function test_ItWorks(): void
     {
         self::assertSame(0, fibonacci(0));
+        self::assertSame(1, fibonacci(1));
     }
 }
 
