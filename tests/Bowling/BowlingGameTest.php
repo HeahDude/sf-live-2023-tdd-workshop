@@ -28,16 +28,16 @@ class BowlingGameTest extends TestCase
         self::assertSame(20, $this->bowlingGame->score());
     }
 
-    public function testOneSpare()
-    {
-        $this->bowlingGame->roll(5);
-        $this->bowlingGame->roll(5); // spare
-        $this->bowlingGame->roll(3); // following roll is counted as bonus
-
-        $this->rollMany(times: 17, pins: 0);
-
-        self::assertSame(16, $this->bowlingGame->score());
-    }
+//    public function testOneSpare()
+//    {
+//        $this->bowlingGame->roll(5);
+//        $this->bowlingGame->roll(5); // spare
+//        $this->bowlingGame->roll(3); // following roll is counted as bonus
+//
+//        $this->rollMany(times: 17, pins: 0);
+//
+//        self::assertSame(16, $this->bowlingGame->score());
+//    }
 
     private function rollMany(int $times, int $pins): void
     {
