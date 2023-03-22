@@ -4,15 +4,22 @@ namespace App\Bowling;
 
 class BowlingGame
 {
-    private int $score = 0;
+    /** @var array<int> */
+    private array $rolls = [];
 
     public function roll(int $pins): void
     {
-        $this->score += $pins;
+        $this->rolls[] = $pins;
     }
 
     public function score(): int
     {
-        return $this->score;
+        $score = 0;
+
+        for ($rollIndex = 0; $rollIndex < \count($this->rolls); ++$rollIndex) {
+            $score += $this->rolls[$rollIndex];
+        }
+
+        return $score;
     }
 }
