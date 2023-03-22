@@ -19,7 +19,7 @@ class BowlingGame
 
         for ($frame = 0; $frame < 10; ++$frame) {
             if (10 === $this->getFrameScore($rollIndex)) {
-                $score += 10 + $this->rolls[$rollIndex + 2];
+                $score += 10 + $this->getSpareBonus($rollIndex);
             } else {
                 $score += $this->getFrameScore($rollIndex);
             }
@@ -33,5 +33,10 @@ class BowlingGame
     private function getFrameScore(int $rollIndex): int
     {
         return $this->rolls[$rollIndex] + $this->rolls[$rollIndex + 1];
+    }
+
+    private function getSpareBonus(int $rollIndex): int
+    {
+        return $this->rolls[$rollIndex + 2];
     }
 }
