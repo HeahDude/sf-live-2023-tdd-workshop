@@ -18,15 +18,20 @@ class BowlingGame
         $rollIndex = 0;
 
         for ($frame = 0; $frame < 10; ++$frame) {
-            if (10 === $this->rolls[$rollIndex] + $this->rolls[$rollIndex + 1]) {
+            if (10 === $this->getFrameScore($rollIndex)) {
                 $score += 10 + $this->rolls[$rollIndex + 2];
             } else {
-                $score += $this->rolls[$rollIndex] + $this->rolls[$rollIndex + 1];
+                $score += $this->getFrameScore($rollIndex);
             }
 
             $rollIndex += 2;
         }
 
         return $score;
+    }
+
+    private function getFrameScore(int $rollIndex): int
+    {
+        return $this->rolls[$rollIndex] + $this->rolls[$rollIndex + 1];
     }
 }
