@@ -16,6 +16,10 @@ class NameInverter
             return $name;
         }
 
+        if ('Mr.' === $nameParts[0]) {
+            array_shift($nameParts);
+        }
+
         return sprintf('%s, %s', $nameParts[1], $nameParts[0]);
     }
 }
