@@ -31,5 +31,5 @@ function fibonacci(int $index): int
         return 1;
     }
 
-    return $index;
+    return fibonacci($index - 1) + fibonacci($index - 2);
 }
