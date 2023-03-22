@@ -11,3 +11,9 @@ class FibonacciTest extends TestCase
         self::assertSame(0, fibonacci(0));
     }
 }
+
+function fibonacci(): int
+{
+    // todo implement me
+    return 0;
+}
