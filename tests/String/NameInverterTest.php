@@ -16,12 +16,17 @@ class NameInverterTest extends TestCase
 
     public function test_GivenEmpty_ReturnsEmptyString(): void
     {
-        self::assertSame('', $this->nameInverter->invert(null));
+        $this->assertNameIsInverted(name: null, expectedInversion: '');
     }
 
     public function test_GivenSimpleName_ReturnsSimpleNameAsIs(): void
     {
-        self::assertSame('Toto', $this->nameInverter->invert('Toto'));
+        $this->assertNameIsInverted(name: 'Toto', expectedInversion: 'Toto');
+    }
+
+    private function assertNameIsInverted(?string $name, string $expectedInversion): void
+    {
+        self::assertSame($expectedInversion, $this->nameInverter->invert($name));
     }
 
     // todo test full name
