@@ -46,12 +46,26 @@ class NameInverterTest extends TestCase
         yield 'Dr' => ['Dr'];
     }
 
+    /**
+     * @dataProvider providePostNominals
+     */
+    public function test_GivenFullNameWithPostNominals_ReturnsInvertedWithPostNominals(string $postNominals): void
+    {
+        $this->assertNameIsInverted(name: 'Diego Aguiar ' . $postNominals, expectedInversion: 'Aguiar, Diego ' . $postNominals);
+    }
+
+    public function providePostNominals(): iterable
+    {
+        yield 'III' => ['III'];
+        yield 'Bs.' => ['Bs.'];
+        yield 'PhD' => ['PhD'];
+        yield 'multiple post nominals' => ['III PhD BS.'];
+    }
+
     private function assertNameIsInverted(?string $name, string $expectedInversion): void
     {
         self::assertSame($expectedInversion, $this->nameInverter->invert($name));
     }
 
-    // todo test full name with honorifics
-    // todo test full name with post nominals
     // todo test integration
 }
