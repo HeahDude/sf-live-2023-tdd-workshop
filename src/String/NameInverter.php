@@ -6,6 +6,10 @@ class NameInverter
 {
     public function invert(?string $input): string
     {
-        return '';
+        if (empty($input)) {
+            return '';
+        }
+
+        return $input;
     }
 }
