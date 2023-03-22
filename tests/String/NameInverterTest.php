@@ -29,12 +29,16 @@ class NameInverterTest extends TestCase
         $this->assertNameIsInverted(name: 'Diego Aguiar', expectedInversion: 'Aguiar, Diego');
     }
 
+    public function test_GivenFullNameWithHonorifics_ReturnsInvertedWithoutHonorifics(): void
+    {
+        $this->assertNameIsInverted(name: 'Mr. Diego Aguiar', expectedInversion: 'Aguiar, Diego');
+    }
+
     private function assertNameIsInverted(?string $name, string $expectedInversion): void
     {
         self::assertSame($expectedInversion, $this->nameInverter->invert($name));
     }
 
-    // todo test full name
     // todo test full name with honorifics
     // todo test full name with post nominals
     // todo test integration
