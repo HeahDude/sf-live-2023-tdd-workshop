@@ -30,9 +30,7 @@ class NameInverter
             $nameParts = $this->removeHonorifics($nameParts);
         }
 
-        $postNominals = array_slice($nameParts, 2);
-
-        return trim(sprintf('%s, %s %s', $nameParts[1], $nameParts[0], implode(' ', $postNominals)));
+        return $this->formatInvertedWithPostNominals($nameParts);
     }
 
     private function isSimpleName(array $nameParts): bool
@@ -52,8 +50,18 @@ class NameInverter
         return $nameParts;
     }
 
+    private function formatInvertedWithPostNominals(array $nameParts): string
+    {
+        return trim(sprintf(
+            '%s, %s %s',
+            $nameParts[1],
+            $nameParts[0],
+            $this->getPostNominals($nameParts),
+        ));
+    }
+
     private function getPostNominals(array $nameParts): string
     {
-
+        return implode(' ', array_slice($nameParts, 2));
     }
 }
