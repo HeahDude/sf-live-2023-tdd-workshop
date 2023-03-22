@@ -49,6 +49,13 @@ class BowlingGameTest extends TestCase
         self::assertSame(24, $this->bowlingGame->score());
     }
 
+    public function testPerfectGame()
+    {
+        $this->rollMany(times: 12, pins: 10);
+
+        self::assertSame(300, $this->bowlingGame->score());
+    }
+
     private function rollMany(int $times, int $pins): void
     {
         for ($i = 0; $i < $times; ++$i) {
