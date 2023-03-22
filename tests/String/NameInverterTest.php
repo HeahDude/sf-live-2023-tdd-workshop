@@ -24,6 +24,11 @@ class NameInverterTest extends TestCase
         $this->assertNameIsInverted(name: 'Toto', expectedInversion: 'Toto');
     }
 
+    public function test_GivenFullName_ReturnsInverted(): void
+    {
+        $this->assertNameIsInverted(name: 'Diego Aguiar', expectedInversion: 'Aguiar, Diego');
+    }
+
     private function assertNameIsInverted(?string $name, string $expectedInversion): void
     {
         self::assertSame($expectedInversion, $this->nameInverter->invert($name));
