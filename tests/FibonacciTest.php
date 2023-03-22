@@ -31,7 +31,7 @@ function fibonacci(int $index): int
         return 0;
     }
 
-    if (2 >= $index) {
+    if (1 === $index) {
         return 1;
     }
 
