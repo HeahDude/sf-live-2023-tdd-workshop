@@ -62,10 +62,13 @@ class NameInverterTest extends TestCase
         yield 'multiple post nominals' => ['III PhD BS.'];
     }
 
+    public function testIntegration(): void
+    {
+        $this->assertNameIsInverted(name: 'MR. Diego Aguiar III BS.', expectedInversion: 'Aguiar, Diego III BS.');
+    }
+
     private function assertNameIsInverted(?string $name, string $expectedInversion): void
     {
         self::assertSame($expectedInversion, $this->nameInverter->invert($name));
     }
-
-    // todo test integration
 }
