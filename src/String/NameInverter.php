@@ -4,6 +4,16 @@ namespace App\String;
 
 class NameInverter
 {
+    private const HONORIFICS_REGEX = '/^(' // starts with
+        . 'mr' // mister
+        . '|miss'
+        . '|ms'
+        . '|mrs'
+        . '|dr)' // doctor
+        . '\.?'
+        . '$/i' // ends with, case-insensitive
+    ;
+
     public function invert(?string $name): string
     {
         if (empty($name)) {
@@ -30,7 +40,7 @@ class NameInverter
 
     private function hasHonorifics(array $nameParts): bool
     {
-        return preg_match('/^(mr|miss|ms|mrs|dr)\.?$/i', $nameParts[0]);
+        return preg_match(self::HONORIFICS_REGEX, $nameParts[0]);
     }
 
     private function removeHonorifics(array $nameParts): array
