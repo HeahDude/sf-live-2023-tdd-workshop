@@ -30,8 +30,7 @@ class BowlingGameTest extends TestCase
 
     public function testOneSpare()
     {
-        $this->bowlingGame->roll(5);
-        $this->bowlingGame->roll(5); // spare
+        $this->rollSpare();
         $this->bowlingGame->roll(3); // following roll is counted as bonus
 
         $this->rollMany(times: 17, pins: 0);
@@ -44,5 +43,11 @@ class BowlingGameTest extends TestCase
         for ($i = 0; $i < $times; ++$i) {
             $this->bowlingGame->roll($pins);
         }
+    }
+
+    private function rollSpare(): void
+    {
+        $this->bowlingGame->roll(5);
+        $this->bowlingGame->roll(5);
     }
 }
