@@ -13,4 +13,16 @@ class NameInverterTest extends TestCase
 
         self::assertSame('', $nameInverter->invert(null));
     }
+
+    public function test_GivenSimpleName_ReturnsSimpleNameAsIs(): void
+    {
+        $nameInverter = new NameInverter();
+
+        self::assertSame('Toto', $nameInverter->invert('Toto'));
+    }
+
+    // todo test full name
+    // todo test full name with honorifics
+    // todo test full name with post nominals
+    // todo test integration
 }
