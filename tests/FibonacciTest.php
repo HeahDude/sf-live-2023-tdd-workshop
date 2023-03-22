@@ -27,13 +27,8 @@ class FibonacciTest extends TestCase
 
 function fibonacci(int $index): int
 {
-    if (0 === $index) {
-        return 0;
-    }
-
-    if (1 === $index) {
-        return 1;
-    }
-
-    return fibonacci($index - 1) + fibonacci($index - 2);
+    return match ($index) {
+        0, 1 => $index,
+        default => fibonacci($index - 1) + fibonacci($index - 2),
+    };
 }
