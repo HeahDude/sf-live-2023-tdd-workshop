@@ -11,6 +11,7 @@ class FibonacciTest extends TestCase
         $cases = [
             0 => 0,
             1 => 1,
+            2 => 1,
         ];
 
         foreach ($cases as $index => $case) {
