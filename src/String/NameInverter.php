@@ -4,12 +4,18 @@ namespace App\String;
 
 class NameInverter
 {
-    public function invert(?string $input): string
+    public function invert(?string $name): string
     {
-        if (empty($input)) {
+        if (empty($name)) {
             return '';
         }
 
-        return $input;
+        $nameParts = explode(' ', $name);
+
+        if (1 === count($nameParts)) {
+            return $name;
+        }
+
+        return sprintf('%s, %s', $nameParts[1], $nameParts[0]);
     }
 }
