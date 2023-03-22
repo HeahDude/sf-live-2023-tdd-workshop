@@ -32,6 +32,9 @@ class NameInverterTest extends TestCase
     public function test_GivenFullNameWithHonorifics_ReturnsInvertedWithoutHonorifics(): void
     {
         $this->assertNameIsInverted(name: 'Mr. Diego Aguiar', expectedInversion: 'Aguiar, Diego');
+        $this->assertNameIsInverted(name: 'Mr Diego Aguiar', expectedInversion: 'Aguiar, Diego');
+        $this->assertNameIsInverted(name: 'Miss Diego Aguiar', expectedInversion: 'Aguiar, Diego');
+        $this->assertNameIsInverted(name: 'Dr Diego Aguiar', expectedInversion: 'Aguiar, Diego');
     }
 
     private function assertNameIsInverted(?string $name, string $expectedInversion): void
