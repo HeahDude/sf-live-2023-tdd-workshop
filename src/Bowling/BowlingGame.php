@@ -18,6 +18,14 @@ class BowlingGame
         $rollIndex = 0;
 
         for ($frame = 0; $frame < 10; ++$frame) {
+            if (10 === $this->rolls[$rollIndex]) {
+                $score += 10 + $this->getStrikeBonus($rollIndex);
+
+                ++$rollIndex;
+
+                continue;
+            }
+
             if (10 === $this->getFrameScore($rollIndex)) {
                 $score += 10 + $this->getSpareBonus($rollIndex);
             } else {
@@ -38,5 +46,10 @@ class BowlingGame
     private function getSpareBonus(int $rollIndex): int
     {
         return $this->rolls[$rollIndex + 2];
+    }
+
+    private function getStrikeBonus(int $rollIndex): int
+    {
+        return $this->rolls[$rollIndex + 1] + $this->rolls[$rollIndex + 2];
     }
 }
