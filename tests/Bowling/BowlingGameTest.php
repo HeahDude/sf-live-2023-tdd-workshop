@@ -5,6 +5,9 @@ namespace App\Tests\Bowling;
 use App\Bowling\BowlingGame;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @group unit
+ */
 class BowlingGameTest extends TestCase
 {
     private BowlingGame $bowlingGame;
