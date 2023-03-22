@@ -2,6 +2,7 @@
 
 namespace App\Tests\String;
 
+use App\String\NameInverter;
 use PHPUnit\Framework\TestCase;
 
 class NameInverterTest extends TestCase
