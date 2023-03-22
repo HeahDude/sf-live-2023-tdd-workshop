@@ -30,7 +30,7 @@ class NameInverter
 
     private function hasHonorifics(array $nameParts): bool
     {
-        return preg_match('/(mr|miss|ms|msr|dr)\.?/i', $nameParts[0]);
+        return preg_match('/^(mr|miss|ms|mrs|dr)\.?$/i', $nameParts[0]);
     }
 
     private function removeHonorifics(array $nameParts): array
