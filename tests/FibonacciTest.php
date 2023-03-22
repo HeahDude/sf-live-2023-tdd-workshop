@@ -22,9 +22,12 @@ class FibonacciTest extends TestCase
 
 function fibonacci(int $index): int
 {
-    // todo implement me
     if (0 === $index) {
         return 0;
+    }
+
+    if (2 >= $index) {
+        return 1;
     }
 
     return $index;
