@@ -13,8 +13,12 @@ class FibonacciTest extends TestCase
     }
 }
 
-function fibonacci(): int
+function fibonacci(int $index): int
 {
     // todo implement me
-    return 0;
+    if (0 === $index) {
+        return 0;
+    }
+
+    return $index;
 }
