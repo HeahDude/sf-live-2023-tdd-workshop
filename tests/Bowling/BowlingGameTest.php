@@ -16,19 +16,22 @@ class BowlingGameTest extends TestCase
 
     public function testAllGutter()
     {
-        for ($i = 0; $i < 20; ++$i) {
-            $this->bowlingGame->roll(0);
-        }
+        $this->rollMany(times: 20, pins: 0);
 
         self::assertSame(0, $this->bowlingGame->score());
     }
 
     public function testAllOnes()
     {
-        for ($i = 0; $i < 20; ++$i) {
-            $this->bowlingGame->roll(1);
-        }
+        $this->rollMany(times: 20, pins: 1);
 
         self::assertSame(20, $this->bowlingGame->score());
+    }
+
+    private function rollMany(int $times, int $pins): void
+    {
+        for ($i = 0; $i < $times; ++$i) {
+            $this->bowlingGame->roll($pins);
+        }
     }
 }
